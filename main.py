@@ -1,8 +1,22 @@
 import pygame
+import pygame.display
 
 pygame.init()
-size = (1500, 900)
+
+width = 1500
+height = 900
+size = (width, height)
 screen = pygame.display.set_mode(size)
+
+white = (255,255,255)
+black = (0,0,0)
+input_box_grey = (144, 150, 146)
+input_box_green = (10, 194, 71)
+
+username = ""
+active = False
+input_box = (200, 200, 140, 32)
+
 pygame.display.set_caption("Title")
 
 running = True
@@ -11,4 +25,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((255, 255, 255))
+        if 
+
+    screen.fill(black)
+
+    pygame.display.update()
