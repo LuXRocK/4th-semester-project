@@ -1,5 +1,6 @@
 import pygame
 import sys
+import button
 
 pygame.init()
 
@@ -25,15 +26,23 @@ input_rect = pygame.Rect(width/2-input_rect_width/2, height/2-input_rect_height/
 color = input_box_grey
 active = False
 
+enter_img_path = 'sprites/enter_btn_white.png'
+enter_img = pygame.image.load(enter_img_path).convert_alpha()
+
+
+enter_button = button.Button(100, 200, enter_img, 0.5)
+
 pygame.display.set_caption("Title")
 
 
 while True:
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
 
+  
         if event.type == pygame.MOUSEBUTTONDOWN:
             if input_rect.collidepoint(event.pos):
                 active = True
@@ -55,6 +64,10 @@ while True:
         color = input_box_grey
 
     pygame.draw.rect(screen, color, input_rect, 2)
+    if enter_button.draw(screen):
+        print('ENTER')
+        pygame.quit()
+        
 
     wellcome_text_surface = base_font.render(wellcome_text, True, white)
     screen.blit(wellcome_text_surface, (width/2-wellcome_text_surface.get_width()/2, height/2-2*input_rect_height))
