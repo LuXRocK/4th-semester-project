@@ -15,17 +15,3 @@ def selectUser(data_file_path, username_input):
 
 
 
-data_file_path = 'users.txt'
-username_input = 'Oliwier'
-
-selectUser(data_file_path, username_input)
-
-# user_info = selectUser(data_file_path, username_input)
-
-# username = user_info[0]
-
-# user_score = user_info[1]
-
-# selectUser(data_file_path, username_input)
-
-# print(username, ' ', user_score)

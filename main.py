@@ -1,6 +1,7 @@
 import pygame
 import sys
 import button
+import functions
 
 pygame.init()
 
@@ -29,6 +30,8 @@ active = False
 enter_img_path = 'sprites/enter_btn_white.png'
 enter_img = pygame.image.load(enter_img_path).convert_alpha()
 
+data_file_path = "users.txt"
+
 
 enter_button = button.Button(width/2-50, (2/3)*height, enter_img, 0.5)
 
@@ -52,9 +55,9 @@ while True:
         if event.type == pygame.KEYDOWN:
             if active == True:
                 if event.key == pygame.K_BACKSPACE:
-                    username_input_input = username_input_input[:-1]
-                elif len(username_input_input) < 8:
-                    username_input_input += event.unicode
+                    username_input = username_input[:-1]
+                elif len(username_input) < 8:
+                    username_input += event.unicode
     
     screen.fill(black)
 
@@ -65,15 +68,21 @@ while True:
 
     pygame.draw.rect(screen, color, input_rect, 2)
     if enter_button.draw(screen):
-        print('ENTER')
+        if len(username_input) > 0:
+            userinfo = functions.selectUser(data_file_path, username_input)
+            print('ENTER')
+            print(userinfo[0], " ", userinfo[1])
+        
         # pygame.quit()
         
 
     wellcome_text_surface = base_font.render(wellcome_text, True, white)
     screen.blit(wellcome_text_surface, (width/2-wellcome_text_surface.get_width()/2, height/2-2*input_rect_height))
-    text_surface = base_font.render(username_input_input, True, white)
+    text_surface = base_font.render(username_input, True, white)
     screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 15))
     input_rect.w = max(input_rect_width, text_surface.get_width() + 10)
+
+
 
     pygame.display.flip()
 
