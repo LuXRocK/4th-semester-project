@@ -1,0 +1,4 @@
+Samuel 200
+Mateusz 300 
+Grzegorz 140
+Oliwier 0
