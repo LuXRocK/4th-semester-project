@@ -1,4 +1,5 @@
-Samuel 200
-Mateusz 300 
-Grzegorz 140
-Oliwier 0
+Samuel 0
+Grzegorz 10
+Oliwier 20
+Maksymilian 0
+JAN 0
