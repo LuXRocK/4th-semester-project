@@ -1,7 +1,8 @@
-# import pygame
+import pygame
 import os
 import re 
 
+#Writing users to file
 def selectUser(data_file_path, username_input):
     username_input = username_input.upper()
     if os.path.getsize(data_file_path) == 0:
@@ -29,10 +30,10 @@ def selectUser(data_file_path, username_input):
                 return line
         data_file.close()
 
-# data_file_name = 'users.txt'
-# username_input = 'Jan'
-# user = selectUser(data_file_name, username_input)
 
-
-# print(user)
-# print(user.split(' ')[0], user.split(' ')[1])
+#Drawing text
+def drawText(text, font, color, surface, x, y):
+    textobj = font.render(text, 1, color)
+    textrect = textobj.get_rect()
+    textrect.topleft = (x - textobj.get_width()/2, y - textobj.get_height()/2)
+    surface.blit(textobj, textrect)

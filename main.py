@@ -34,6 +34,7 @@ data_file_path = "users.txt"
 username = ""
 user_score = ""
 
+bg = pygame.image.load('sprites/bg1.png')
 
 enter_button = button.Button(width/2-50, (2/3)*height, enter_img, 0.5)
 
@@ -80,8 +81,12 @@ while True:
         if len(username_input) > 0:
             user = functions.selectUser(data_file_path, username_input)
             username = user.split(' ')[0]
-            user_score = user.split(' ')[1]
+            user_score = user.split(' ')[1] 
+            screen.blit(bg, (0, 0))
 
     pygame.display.flip()
 
     clock.tick(60)
+
+
+    

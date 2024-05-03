@@ -1,5 +1,4 @@
-Samuel 0
-Grzegorz 10
-Oliwier 20
-Maksymilian 0
-JAN 0
+SAMI 0
+GRZES 0
+OLI 0
+ADI 0
