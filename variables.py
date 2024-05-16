@@ -27,10 +27,15 @@ user_score = ""
 #paths
 enter_img_path = 'sprites/enter_btn_white.png'
 data_file_path = "users.txt"
+start_img_path = "sprites/start_btn.png"
+scoreboard_img_path = "sprites/scoreboard_btn.png"
+exit_img_path = "sprites/exit_btn.png"
 
 #images
 enter_img = pygame.image.load(enter_img_path).convert_alpha()
-bg = pygame.image.load('sprites/bg1.png')
+start_button = pygame.image.load(start_img_path).convert_alpha()
+scoreboard_button = pygame.image.load(scoreboard_img_path).convert_alpha()
+exit_button = pygame.image.load(exit_img_path).convert_alpha()
 
 #still thinking
 input_rect_width = 100

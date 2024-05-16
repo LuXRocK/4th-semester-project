@@ -61,7 +61,7 @@ def userSelect():
                 user = functions.selectUser(variables.data_file_path, username_input)
                 variables.username = user.split(' ')[0]
                 variables.user_score = user.split(' ')[1]
-                return 0 
+                return 0
         
         pygame.display.update()
         mainClock.tick(60)

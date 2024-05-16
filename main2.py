@@ -7,10 +7,10 @@ pygame.display.set_caption("Looper")
 screen = pygame.display.set_mode(variables.size)
 font = pygame.font.SysFont(None, 32)
 
+while True:
+    user_select.userSelect()
 
-user_select.userSelect()
-
-main_menu.mainMenu()
+    main_menu.mainMenu()
 
 
 # user_select.userSelect()
