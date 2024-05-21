@@ -6,7 +6,7 @@ from pygame.locals import *
 pygame.init()
 pygame.display.set_caption("Looper")
 screen = pygame.display.set_mode(variables.size)
-font = pygame.font.SysFont(None, 32)
+font = pygame.font.Font("8bit_wonder/8-BIT WONDER.TTF", 32)
 
 #Input box setup
 input_rect_width = 100
@@ -61,6 +61,7 @@ def userSelect():
                 user = functions.selectUser(variables.data_file_path, username_input)
                 variables.username = user.split(' ')[0]
                 variables.user_score = user.split(' ')[1]
+                screen.fill(variables.black)
                 return 0
         
         pygame.display.update()
