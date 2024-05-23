@@ -1,4 +1,6 @@
 import pygame
+from spritesheet import Spritesheet
+from tiles import *
 from menu import *
 
 
@@ -17,6 +19,12 @@ class Game():
         self.options = OptionsMenu(self)
         self.exit = Exit(self)
         self.curr_menu = self.main_menu
+        self.spritesheet = Spritesheet('spritesheet.png')
+        self.player_img = self.spritesheet.parse_sprite('chick.png')
+        self.player_rect = self.player_img.get_rect()
+        self.map = TileMap('level.csv', self.spritesheet )
+        self.player_rect.x, self.player_rect.y = self.map.start_x, self.map.start_y
+
 
     def game_loop(self):
         while self.playing:
@@ -24,10 +32,11 @@ class Game():
             if self.START_KEY:
                 self.playing= False
             self.display.fill(self.BLACK)
-            self.draw_text('Thanks for Playing', 20, self.DISPLAY_W/2, self.DISPLAY_H/2)
+            self.map.draw_map(self.display)
+            self.display.blit(self.player_img, self.player_rect)
             self.window.blit(self.display, (0,0))
-            pygame.display.update()
             self.reset_keys()
+            pygame.display.update()
 
 
 
