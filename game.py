@@ -15,7 +15,7 @@ class Game():
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
-        self.credits = CreditsMenu(self)
+        self.exit = Exit(self)
         self.curr_menu = self.main_menu
 
     def game_loop(self):
@@ -33,7 +33,7 @@ class Game():
 
     def check_events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT or self.curr_menu == self.exit:
                 self.running, self.playing = False, False
                 self.curr_menu.run_display = False
             if event.type == pygame.KEYDOWN:

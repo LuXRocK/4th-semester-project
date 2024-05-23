@@ -31,6 +31,19 @@ def selectUser(data_file_path, username_input):
         data_file.close()
 
 
+#Scoreboard
+def scoreboard(data_file_path):
+    scoreboard = {}
+    with open('users.txt', 'r') as data_file:
+        for line in data_file:
+            scoreboard.update({line.split()[0] : line.split()[1]})
+    data_file.close()
+    scoreboard = sorted(scoreboard.items(), key=lambda x:x[1], reverse=True)
+    scoreboard_list = []
+    for item in scoreboard:
+        scoreboard_list.append(item[0] + " " + item[1])
+    return scoreboard_list
+
 #Drawing text
 def drawText(text, font, color, surface, x, y):
     textobj = font.render(text, 1, color)
